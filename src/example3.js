@@ -1,17 +1,11 @@
 import React from 'react';
-import {saveitem} from './action/myaction';
+import {saveitem,removeitem} from './action/myaction';
 
 import { useSelector, useDispatch } from 'react-redux';
 const ReduxThree = () =>{
     const productList = useSelector(state =>state.productList); // to fetch data from store
     const dispatch = useDispatch();
-    const removeitem =(index)=>{
-        dispatch({
-            type:'remove',
-            index:index
-        });
-        
-    }
+   
     return(
         <div align="center">
             <h1> Redux Example Three For Multi Dimensional Array </h1>
