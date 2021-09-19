@@ -4,6 +4,7 @@ const productList = (state=[], action) =>{
     
     if(action.type==="save"){
         oldState.push(action.itemdetails);
+        
     }
     if(action.type==="remove"){
         oldState.splice(action.index,1);
