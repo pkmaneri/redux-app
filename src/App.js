@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReduxOne from "./example1";
+import ReduxTwo from "./example2";
+import ReduxThree from "./example3";
+import { HashRouter, Link, Route } from "react-router-dom"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+    <ul>
+      <li><Link to="/">ReduxOne</Link> </li>
+      <li ><Link to="/reduxtwo">ReduxTwo</Link> </li>
+      <li ><Link to="/reduxthree">ReduxThree</Link> </li>
+     
+    </ul>
+    <Route exact path="/" component={ReduxOne}/>
+    <Route exact path="/reduxtwo" component={ReduxTwo}/>
+    <Route exact path="/reduxthree" component={ReduxThree}/>
+  </HashRouter>
+     
   );
 }
 
