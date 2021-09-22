@@ -2,7 +2,7 @@
 const productList = (state=[], action) =>{
     var oldState = Object.assign([], state); // to fetch old state value from store
     
-    if(action.type==="save"){
+    if(action.type==="savedata"){
         oldState.push(action.itemdetails);
         
     }

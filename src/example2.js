@@ -9,7 +9,7 @@ const ReduxTwo=()=>{
     const dispatch= useDispatch()
     return(
         <div align="center">
-            <h1>Redux Example Two For 1 Dimensional Array</h1>
+            <h1> 1 Dimensional Array</h1>
             <p>
                 Enter Item Name: <input type="text" id="itemname"></input>
                 <button onClick={()=>dispatch(additem())}>Save Item</button>
