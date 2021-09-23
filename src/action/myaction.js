@@ -46,26 +46,27 @@ export const submitData = () => {
     var iteminfo = {
         type: "submit",
         datadetails: {
-            fullname: document.getElementById("fName").value,
-            city: document.getElementById("city").value,
-            available: document.querySelectorAll('[name="available"]').forEach((ele) => {
+            "fullname": document.getElementById("fName").value,
+            "city": document.getElementById("city").value,
+            "available": document.querySelectorAll('[name="available"]').forEach((ele) => {
                 if (ele.checked === true) {
                     available = ele.value
                     console.log(available)
                 }
             }),
-            gender: document.querySelectorAll('[name="gender"]').forEach((ele) => {
+            "gender": document.querySelectorAll('[name="gender"]').forEach((ele) => {
                 if (ele.checked === true) {
                     gender = ele.value
                     console.log(gender)
                 }
 
             })
-
         }
+        
     };
     document.getElementById("fName").value = "";
     document.getElementById("city").value = "";
+
 
 
     return iteminfo
