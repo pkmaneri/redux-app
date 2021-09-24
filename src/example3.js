@@ -20,7 +20,7 @@ const ReduxThree = () => {
                 <table align="center" cellPadding="15">
                     <thead>
                         <tr>
-                            <th>Item Index</th>
+                            <th> Index</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Item Quantity</th>

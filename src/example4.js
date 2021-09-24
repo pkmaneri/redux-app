@@ -4,8 +4,8 @@ import { submitData, removeData } from './action/myaction';
 import { useSelector, useDispatch } from 'react-redux';
 
 const ReduxFour = () => {
-    const dataList = useSelector(state => state.dataList) // to fetch data from store
-
+    const dataList = useSelector(state => state.dataList)
+    console.log(dataList) // to fetch data from store
     const dispatch = useDispatch();
 
     return (
@@ -17,9 +17,13 @@ const ReduxFour = () => {
                             <label>FullName</label>
                             <input type="text" placeholder="fullName" id="fName" class="form-control" />
                         </div>
+                        <div className="mb-3" >
+                            <label>Mobile</label>
+                            <input type="number" placeholder="mobile" id="mobile" class="form-control" />
+                        </div>
                         <div className="mb-3">
                             <lable>City</lable>
-                            <select id="city" class="form-control" id="city">
+                            <select id="city" class="form-control" >
                                 <option value="select">Select</option>
                                 <option value="patna">Patna</option>
                                 <option value="delhi">Delhi</option>
@@ -33,11 +37,15 @@ const ReduxFour = () => {
                             <label>Female</label>
                             <input type="radio" value="Female" name="gender" />
                         </div>
+                        <div class="form-floating">
+                            <textarea class="form-control" id="textarea"></textarea>
+                            <label >Comments</label>
+                        </div>
                         <div className="mb-3 form-check">
                             <input className="form-check-input" type="checkbox" name="available" value="available" />
                             <label className="form-check-label" htmlFor="flexCheckChecked">  Available For Review
                             </label>
-                        </div>
+                        </div>                
                         <button type="submit" class="btn btn-primary" onClick={() => dispatch(submitData())} >Submit</button>
 
                     </div>
@@ -45,24 +53,29 @@ const ReduxFour = () => {
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">FullName</th>
-                                    <th scope="col">City</th>
-                                    <th scope="col">Gender</th>
-                                    <th scope="col">Available</th>
-                                    <th scope="col">Action</th>
+                                    <th>#</th>
+                                    <th>FullName</th>
+                                    <th>Mobile</th>
+                                    <th>City</th>
+                                    <th>Gender</th>
+                                    <th>Comments</th>
+                                    <th>Available</th>
+                                    <th>Action</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 {dataList.map((ele, index) => {
+                                    console.log(ele)
                                     return (
                                         <tr key={index}>
                                             <td>{index}</td>
                                             <td>{ele.fullname}</td>
+                                            <td>{ele.mobile}</td>
                                             <td>{ele.city}</td>
-                                            <td>{ele.gender + ""}</td>
-                                            <td>{ele.available + ""}</td>
+                                            <td>{ele.gender+""}</td>
+                                            <td>{ele.comment}</td>
+                                            <td>{ele.available+""}</td>
                                             <td><button className="btn btn-danger" onClick={() => dispatch(removeData(index))}>X</button></td>
                                         </tr>
                                     )

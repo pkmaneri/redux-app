@@ -41,34 +41,46 @@ export const removeitem = (index) => {
     }
 }
 export const submitData = () => {
-    var gender = undefined;
+    var gender=undefined;
     var available = undefined;
+     
     var iteminfo = {
         type: "submit",
-        datadetails: {
-            "fullname": document.getElementById("fName").value,
-            "city": document.getElementById("city").value,
-            "available": document.querySelectorAll('[name="available"]').forEach((ele) => {
+         datadetails:{
+            fullname: document.getElementById("fName").value,
+            mobile: document.getElementById("mobile").value,
+            city: document.getElementById("city").value,
+            comment: document.getElementById("textarea").value,
+            // gender: document.querySelectorAll('[name="gender"]').forEach((ele) => {
+            //     console.log(ele)
+            //     if (ele.checked === true) {
+            //         gender = ele.value
+                    
+            //     }
+            //     console.log(ele.checked, gender)
+            // }),
+            gender:document.getElementsByName('gender').forEach((ele)=>{
+                if(ele.checked===true){
+                    gender=ele.value
+                    console.log(gender)
+                }
+            }),
+               
+            available: document.querySelectorAll('[name="available"]').forEach((ele) => {
                 if (ele.checked === true) {
                     available = ele.value
                     console.log(available)
                 }
-            }),
-            "gender": document.querySelectorAll('[name="gender"]').forEach((ele) => {
-                if (ele.checked === true) {
-                    gender = ele.value
-                    console.log(gender)
-                }
-
-            })
-        }
-        
+            }), 
+           
+        }   
     };
+   
     document.getElementById("fName").value = "";
+    document.getElementById("mobile").value = "";
     document.getElementById("city").value = "";
-
-
-
+    document.getElementById("textarea").value = "";
+    
     return iteminfo
 
 }
