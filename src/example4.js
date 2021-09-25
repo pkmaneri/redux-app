@@ -8,6 +8,42 @@ const ReduxFour = () => {
     console.log(dataList) // to fetch data from store
     const dispatch = useDispatch();
 
+    const addData = () => {
+
+        let gender = "";
+        document.getElementsByName('gender').forEach((ele) => {
+            if (ele.checked === true) {
+                gender = ele.value
+                console.log(gender)
+            }
+        });
+        let available = "";
+        document.querySelectorAll('[name="available"]').forEach((ele) => {
+            if (ele.checked === true) {
+                available = ele.value
+                console.log(available)
+            }
+        });
+
+        let data = {
+            fullname: document.getElementById("fName").value,
+            mobile: document.getElementById("mobile").value,
+            city: document.getElementById("city").value,
+            comment: document.getElementById("textarea").value,
+            available, gender
+        }
+
+        console.log(data)
+
+        dispatch(submitData(data));
+
+        // reset
+        document.getElementById("fName").value = "";
+        document.getElementById("mobile").value = "";
+        document.getElementById("city").value = "";
+        document.getElementById("textarea").value = "";
+    }
+
     return (
         <>
             <div className="container">
@@ -45,8 +81,8 @@ const ReduxFour = () => {
                             <input className="form-check-input" type="checkbox" name="available" value="available" />
                             <label className="form-check-label" htmlFor="flexCheckChecked">  Available For Review
                             </label>
-                        </div>                
-                        <button type="submit" class="btn btn-primary" onClick={() => dispatch(submitData())} >Submit</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary" onClick={addData.bind(this)} >Submit</button>
 
                     </div>
                     <div className="col-8">
@@ -73,22 +109,18 @@ const ReduxFour = () => {
                                             <td>{ele.fullname}</td>
                                             <td>{ele.mobile}</td>
                                             <td>{ele.city}</td>
-                                            <td>{ele.gender+""}</td>
+                                            <td>{ele.gender + ""}</td>
                                             <td>{ele.comment}</td>
-                                            <td>{ele.available+""}</td>
+                                            <td>{ele.available + ""}</td>
                                             <td><button className="btn btn-danger" onClick={() => dispatch(removeData(index))}>X</button></td>
                                         </tr>
                                     )
                                 })}
                             </tbody>
                         </table>
-
-
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }
