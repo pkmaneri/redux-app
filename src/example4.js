@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const ReduxFour = () => {
     const dataList = useSelector(state => state.dataList)
-    console.log(dataList) // to fetch data from store
+    // console.log(dataList) // to fetch data from store
     const dispatch = useDispatch();
 
     const addData = () => {
@@ -60,7 +60,6 @@ const ReduxFour = () => {
                         <div className="mb-3">
                             <lable>City</lable>
                             <select id="city" class="form-control" >
-                                <option value="select">Select</option>
                                 <option value="patna">Patna</option>
                                 <option value="delhi">Delhi</option>
                                 <option value="bangalore">Bangalore</option>
@@ -101,17 +100,17 @@ const ReduxFour = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {dataList.map((ele, index) => {
-                                    console.log(ele)
+                                {dataList.map((profileInfo, index) => {
+                                    console.log(profileInfo)
                                     return (
                                         <tr key={index}>
                                             <td>{index}</td>
-                                            <td>{ele.fullname}</td>
-                                            <td>{ele.mobile}</td>
-                                            <td>{ele.city}</td>
-                                            <td>{ele.gender + ""}</td>
-                                            <td>{ele.comment}</td>
-                                            <td>{ele.available + ""}</td>
+                                            <td>{profileInfo.fullname}</td>
+                                            <td>{profileInfo.mobile}</td>
+                                            <td>{profileInfo.city}</td>
+                                            <td>{profileInfo.gender + ""}</td>
+                                            <td>{profileInfo.comment}</td>
+                                            <td>{profileInfo.available + ""}</td>
                                             <td><button className="btn btn-danger" onClick={() => dispatch(removeData(index))}>X</button></td>
                                         </tr>
                                     )

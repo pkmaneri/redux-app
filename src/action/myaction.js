@@ -57,3 +57,21 @@ export const removeData = (index) => {
         index
     }
 }
+
+export const profileData = (data) => {
+     
+    var iteminfo = {
+        type: "submitProfile",
+         "profiledetails": data
+    };
+
+    
+    return iteminfo
+
+}
+export const removeProfile = (index) => {
+    return {
+        type: "remove",
+        index
+    }
+}
