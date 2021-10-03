@@ -1,4 +1,3 @@
-
 export const one = () => {
     return {
         type: "PLUS"
@@ -41,13 +40,13 @@ export const removeitem = (index) => {
     }
 }
 export const submitData = (data) => {
-     
+
     var iteminfo = {
         type: "submit",
-         "datadetails": data
+        "datadetails": data
     };
 
-    
+
     return iteminfo
 
 }
@@ -57,19 +56,70 @@ export const removeData = (index) => {
         index
     }
 }
+export const profileget =(users)=>({
+    type:"getuser",
+    payload:users
+})
+export const Profileremove =(id)=>({
+    type:"remove",
+    id:id
+})
+export const updateProfile=(user)=>({
+    type:"update",
+    payload:user
+    
+
+})
+
+
+
 
 export const profileData = (data) => {
-     
+
     var iteminfo = {
         type: "submitProfile",
-         "profiledetails": data
+        "profiledetails": data
     };
 
-    
+
     return iteminfo
 
 }
-export const removeProfile = (index) => {
+// export const removeProfile = (id) => {
+//     return {
+//         type: "remove",
+//         id
+//     }
+// }
+// const updateInfo=(index)=>{
+//     return {
+//         type: "update",
+//         index
+//     }
+// }
+// export const updateProfile=(data)=>{
+//     return{
+//         type:"update_profile",
+//         updateDetailes:data,
+
+//     }
+// }
+
+
+
+
+export const productData = (data) => {
+
+    var iteminfo = {
+        type: "submitProduct",
+        "productdetails": data
+    };
+
+
+    return iteminfo
+
+}
+export const removeProduct = (index) => {
     return {
         type: "remove",
         index
