@@ -47,6 +47,7 @@ const ReduxFive = () => {
     };
 
     const getProfile = () => {
+        
         var url = "http://localhost:3001/user";
         axios.get(url).then(response => {
             console.log(response)
