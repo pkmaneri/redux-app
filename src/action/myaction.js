@@ -125,3 +125,30 @@ export const removeProduct = (index) => {
         index
     }
 }
+
+
+export const productuserget =(products)=>({
+    type:"getproductuser",
+    payload:products
+})
+export const Productuserremove =(id)=>({
+    type:"remove",
+    id:id
+})
+export const updateProductUser=(product)=>({
+    type:"update",
+    payload:product
+    
+
+})
+
+export const productUserData = (data) => {
+    var iteminfo = {
+        type: "submitProductUser",
+        payload: data
+    };
+
+
+    return iteminfo
+
+}

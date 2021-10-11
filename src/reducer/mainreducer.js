@@ -6,9 +6,10 @@ import productList from "./arrayreducer2";
 import dataList  from "./arrayreducer3";
 import product from "./productreducer";
 import useReducers from "./profilereducer"
+import productUserReducer from "./productuserreducer";
 const mainreducer=combineReducers(
     {
-        myNumber,itemList,productList,dataList,product,data:useReducers
+        myNumber,itemList,productList,dataList,product,data:useReducers,userdata:productUserReducer
     }
 )
 export default mainreducer;
