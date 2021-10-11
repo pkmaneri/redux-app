@@ -70,7 +70,7 @@ const EditExample = () => {
                         </div>
                         <div className="mb-3" >
                             <label>Quantity</label>
-                            <input type="number" placeholder="qty" class="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
+                            <input type="number" placeholder="quantity" class="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
                         </div>
                         <div className="mb-3">
                         <lable>Country</lable>

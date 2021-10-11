@@ -63,9 +63,8 @@ const EditExampleSeven = () => {
                             <label>ProductQuantity</label>
                             <input type="number" placeholder="ProductQuantity" value={productQty} onChange={(e) => setProductQuantity(e.target.value)} class="form-control" />
                         </div>
-                        <Link to="/reduxseven" className="btn btn-success m-2">Back </Link>
                         <button type="submit" class="btn btn-primary" onClick={updateProduct}>Update</button>
-
+                        <Link to="/reduxseven" className="btn btn-success m-2">Back </Link>
                     </div>
                 </div>
             </div>

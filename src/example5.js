@@ -21,6 +21,25 @@ const ReduxFive = () => {
     // to fetch data from store
     const dispatch = useDispatch();
 
+
+    const handleOnChange = (e ) => {
+        const files = Array.from(e.target.files);
+        getBase64(files[0], (encodeData) => {
+        setPhoto(encodeData);
+        });
+      };
+      const getBase64 = (file, cb) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+          cb(reader.result);
+        };
+        reader.onerror = function (error) {
+          console.log("Error: ", error);
+        };
+      };
+    
+
     const addProfile = () => {
         var data = { bookName: bookName, price: price, qty: qty, country: country, bookphoto: bookphoto };
         var url = "http://localhost:3001/user/";
@@ -77,14 +96,17 @@ const ReduxFive = () => {
                         <label>Price</label>
                         <input type="number" placeholder="price" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
                     </div>
-                    <div className="mb-3">
+                    {/* <div className="mb-3">
                         <label>Book Photo</label>
                         <input type="text" className="form-control" value={bookphoto}
                             onChange={e => setPhoto(e.target.value)} />
+                    </div> */}
+                    <div className="mb-3">
+                        <input type="file" onChange={handleOnChange}></input>
                     </div>
                     <div className="mb-3" >
                         <label>Quantity</label>
-                        <input type="number" placeholder="qty" className="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
+                        <input type="number" placeholder="quantity" className="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
                     </div>
 
                     <div className="mb-3">
