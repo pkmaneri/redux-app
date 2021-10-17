@@ -89,11 +89,11 @@ const ReduxFive = () => {
             <div className="container" >
                 <div className="col-lg-6">
                     <div className="mb-3" >
-                        <label>BookName</label>
+                        <label htmlFor="form-control">BookName</label>
                         <input type="text" placeholder="bookName" className="form-control" value={bookName} onChange={(e) => setBookName(e.target.value)} />
                     </div>
                     <div className="mb-3" >
-                        <label>Price</label>
+                        <label htmlFor="form-control">Price</label>
                         <input type="number" placeholder="price" className="form-control" value={price} onChange={(e) => setPrice(e.target.value)} />
                     </div>
                     {/* <div className="mb-3">
@@ -105,12 +105,12 @@ const ReduxFive = () => {
                         <input type="file" onChange={handleOnChange}></input>
                     </div>
                     <div className="mb-3" >
-                        <label>Quantity</label>
+                        <label htmlFor="form-control">Quantity</label>
                         <input type="number" placeholder="quantity" className="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
                     </div>
 
                     <div className="mb-3">
-                        <lable>Country</lable>
+                        <lable htmlFor="form-control">Country</lable>
                         <select class="form-control" value={country} onChange={(e) => setCountry(e.target.value)} >
                             <option defaultValue="select">Select</option>
                             {countryList.map((ele, index) => {

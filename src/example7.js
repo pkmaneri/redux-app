@@ -58,7 +58,7 @@ const ReduxSeven = () => {
 
     useEffect(() => {
         getProductUser();
-    }, [true])
+    }, [])
 
     const handleBack=()=>{
         setToggle("listView")

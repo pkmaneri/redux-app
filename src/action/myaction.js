@@ -152,3 +152,35 @@ export const productUserData = (data) => {
     return iteminfo
 
 }
+
+
+
+
+
+//post
+export const postGet =(postLists)=>({
+    type:"getPost",
+    payload:postLists
+})
+export const postRemove =(id)=>({
+    type:"remove",
+    id:id
+})
+export const updatePost=(postList)=>({
+    type:"updatePost",
+    payload:postList
+    
+
+})
+
+export const postData = (data) => {
+    var iteminfo = {
+        type: "submitPost",
+        payload: data
+    };
+
+
+    return iteminfo
+
+}
+

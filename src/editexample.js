@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 const EditExample = () => {
-    const [countryList] = useState ([{ "name": "Afghanistan" }, { "name": "Bangladesh" }, { "name": "Barbados" },{ "name": "Cameroon" }, { "name": "Canada" }, { "name": "Denmark" }, { "name": "Djibouti" }, { "name": "Guernsey" }, { "name": "Guinea" },  { "name": "Guinea-Bissau" }, { "name": "Guyana" }, { "name": "Haiti" },{ "name": "Heard Island and Mcdonald Islands" }, { "name": "Holy See (Vatican City State)" },{ "name": "Honduras" }, { "name": "Hong Kong" }, { "name": "Hungary" }, { "name": "Iceland" }, { "name": "India" }, { "name": "Indonesia" }, { "name": "Somalia" }, { "name": "South Africa" }, { "name": "Yemen" }, { "name": "Zambia" }, { "name": "Zimbabwe" }] )
+    const [countryList] = useState([{ "name": "Afghanistan" }, { "name": "Bangladesh" }, { "name": "Barbados" }, { "name": "Cameroon" }, { "name": "Canada" }, { "name": "Denmark" }, { "name": "Djibouti" }, { "name": "Guernsey" }, { "name": "Guinea" }, { "name": "Guinea-Bissau" }, { "name": "Guyana" }, { "name": "Haiti" }, { "name": "Heard Island and Mcdonald Islands" }, { "name": "Holy See (Vatican City State)" }, { "name": "Honduras" }, { "name": "Hong Kong" }, { "name": "Hungary" }, { "name": "Iceland" }, { "name": "India" }, { "name": "Indonesia" }, { "name": "Somalia" }, { "name": "South Africa" }, { "name": "Yemen" }, { "name": "Zambia" }, { "name": "Zimbabwe" }])
     const { bookid } = useParams();
 
     const [bookName, setBookName] = useState("");
@@ -36,18 +36,20 @@ const EditExample = () => {
         var url = "http://localhost:3001/user/" + bookid;
         axios.get(url)
             .then(response => {
+                console.log(response.data)
                 setBookName(response.data.bookName)
                 setCountry(response.data.country)
                 setPhoto(response.data.bookphoto)
                 setPrice(response.data.price)
                 setQuantity(response.data.qty)
-               
+
 
             })
     }
     useEffect(() => {
         getProfile();
     }, [])
+    
 
 
     return (
@@ -73,20 +75,18 @@ const EditExample = () => {
                             <input type="number" placeholder="quantity" class="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
                         </div>
                         <div className="mb-3">
-                        <lable>Country</lable>
-                        <select class="form-control" value={country} onChange={(e) => setCountry(e.target.value)} >
-                            <option defaultValue="select">Select</option>
-                            {countryList.map((ele, index) => {
-                                // console.log(ele)
-                                return (
-                                    <option key={index}>
-                                        {ele.name}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
-                        <Link to="/reduxfive" className="btn btn-success m-2">Back </Link>
+                            <lable>Country</lable>
+                            <select class="form-control" value={country} onChange={(e) => setCountry(e.target.value)} >
+                                <option defaultValue="select">Select</option>
+                                {countryList.map((ele, index) => {
+                                    return (
+                                        <option key={index}>
+                                            {ele.name}
+                                        </option>
+                                    );
+                                })}
+                            </select>
+                        </div>
                         <button className="btn btn-warning m-2" onClick={profileUpdate}> Update</button>
 
                     </div>

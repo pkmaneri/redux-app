@@ -18,31 +18,32 @@ const EditExampleSeven = () => {
         var data = { productName: productName, productPrice: productPrice, productQty: productQty };
         axios.put("http://localhost:4000/v1/puser/" + productid, data)
             .then(response => {
-            console.log(response)
-            dispatch(updateProductUser(response.data));
+                console.log(response.data)
+            dispatch(updateProductUser(response.data[0]));
             setProductPrice("");
             setProductQuantity("");
             setProductName("")
+            getProductUser();
 
         })
     }
 
     const getProductUser = () => {
         var url = "http://localhost:4000/v1/pusers/"+ productid;
-        axios.get(url).then(res => {
-            dispatch(res.data)
-           setProductPrice(res.data.productName);
-           setProductPrice(res.data.productPrice);
-           setProductQuantity(res.data.productQty)
+        axios.get(url)
+        .then(response => {
+            console.log(response.data)
+            setProductName(response.data[0].productName)
+            setProductPrice(response.data[0].productPrice)
+            setProductQuantity(response.data[0].productQty)
         })
-            .catch((error) => console.log(error))
-    }
+}
        
 
     useEffect(() => {
         getProductUser();
-    }, [])
-
+    }, [true]);
+    
 
     return (
         <>
