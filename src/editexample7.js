@@ -4,8 +4,6 @@ import { useDispatch, } from "react-redux";
 import { Link,useParams } from "react-router-dom";
 import {  updateProductUser } from './action/myaction';
 
-
-
 const EditExampleSeven = () => {
     const { productid } = useParams();
 
@@ -19,7 +17,7 @@ const EditExampleSeven = () => {
         axios.put("http://localhost:4000/v1/puser/" + productid, data)
             .then(response => {
                 console.log(response.data)
-            dispatch(updateProductUser(response.data[0]));
+            dispatch(updateProductUser(response.data));
             setProductPrice("");
             setProductQuantity("");
             setProductName("")

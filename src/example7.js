@@ -29,23 +29,14 @@ const ReduxSeven = () => {
         })
     }
 
-    const handleDelete = (_id) => {
-        axios.delete("http://localhost:4000/v1/puser/" + _id)
+    const handleDelete = (id) => {
+        axios.delete("http://localhost:4000/v1/puser/" + id)
             .then(response => {
+                console.log(response.data)
                 dispatch(Productuserremove());
                 getProductUser();
             })
     };
-    // const handleDelete =(_id)=> {
-    //      fetch("http://localhost:4000/v1/productusers/" + _id, {
-    //       method: "delete",
-    //     }).then(response=>{
-    //         dispatch(Productuserremove());
-    //         getProductUser();
-    //     })
-    //   }
-
-
     const getProductUser = () => {
         var url = "http://localhost:4000/v1/pusers";
         axios.get(url).then(response => {
@@ -58,7 +49,7 @@ const ReduxSeven = () => {
 
     useEffect(() => {
         getProductUser();
-    }, [])
+    },[])
 
     const handleBack=()=>{
         setToggle("listView")

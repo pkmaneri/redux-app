@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postData, postGet, postRemove } from "../action/myaction";
+import { postData, postGet, postRemove, postUpdate } from "../action/myaction";
 import CreateTodo from "./CreateTodo";
 import ListTodo from "./ListTodo";
 import UpdateTodo from "./UpdateTodo";
@@ -18,7 +18,6 @@ const MasterTodo = () => {
             checked: true,
         },
     }
-    // const [state, setState] = useState(intialState);
     const [updatePost, setUpdatePost] = useState(intialUpdateState);
     const [toggle, setToggle] = useState("listView");
 
@@ -31,13 +30,17 @@ const MasterTodo = () => {
 
         })
     }
-    const handleDelete = (_id) => {
-        axios.delete("http://localhost:4000/v1/todo/" + _id)
+
+    const handleDelete = (id) => {
+        axios.delete("http://localhost:4000/v1/todo/" + id)
             .then(response => {
+                console.log(response.data)
                 dispatch(postRemove());
                 getPost();
             })
-    }
+    };
+    
+   
     const handleUpdate = (post) => {
         setUpdatePost({
             post: post,
@@ -45,12 +48,13 @@ const MasterTodo = () => {
         setToggle("updateView")
     }
     
-    const handleUpdatePost = (post) => {
-        axios.put("http://localhost:4000/v1/todo/" + post)
+    const handleUpdateNew = (post) => {
+        axios.put("http://localhost:4000/v1/todo/"+post.id, post)
             .then(response => {
-                dispatch(updatePost(response.data));
+                dispatch(postUpdate(response.data));
                 getPost();
             })
+            console.log(post)
             setToggle("listView")
     }
 
@@ -62,6 +66,7 @@ const MasterTodo = () => {
             dispatch(postGet(response.data));
            setToggle("listView")
         })
+        .catch((error) => console.log(error))
     };
      
     useEffect(() => {
@@ -87,9 +92,8 @@ const MasterTodo = () => {
             <div className="container" >
                 <UpdateTodo
                     updatePost={updatePost}
-                    updateCallback={handleUpdatePost}
+                    updateCallback={handleUpdateNew}
                     updateBackCallback={handleBack}
-
                 />
             </div>
         )

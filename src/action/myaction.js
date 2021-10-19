@@ -71,9 +71,6 @@ export const updateProfile=(user)=>({
 
 })
 
-
-
-
 export const profileData = (data) => {
 
     var iteminfo = {
@@ -153,10 +150,6 @@ export const productUserData = (data) => {
 
 }
 
-
-
-
-
 //post
 export const postGet =(postLists)=>({
     type:"getPost",
@@ -166,11 +159,9 @@ export const postRemove =(id)=>({
     type:"remove",
     id:id
 })
-export const updatePost=(postList)=>({
+export const postUpdate=(postList)=>({
     type:"updatePost",
     payload:postList
-    
-
 })
 
 export const postData = (data) => {

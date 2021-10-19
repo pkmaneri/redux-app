@@ -10,6 +10,7 @@ import EditExample from "./editexample";
 import ReduxSeven from "./example7";
 import EditExampleSeven from "./editexample7";
 import MasterTodo from "./component/MasterTodo";
+import useReducer from "./reducer";
 // import Ref from "./ref";
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
         {/* <li ><Link to="/reduxsix">ReduxSix</Link> </li> */}
         <li ><Link to="/reduxseven">ReduxSeven</Link> </li>
         <li ><Link to="/reduxtodo">Todo</Link> </li>
+        <li ><Link to="/usereducer">UseReducer</Link> </li>
+
 
         {/* <li ><Link to="/ref">UseRef</Link> </li> */}
 
@@ -39,7 +42,7 @@ function App() {
       {/* <Route exact path="/reduxsix" component={ReduxSix} /> */}
       <Route exact path="/reduxseven" component={ReduxSeven} />
       <Route exact path="/reduxtodo" component={MasterTodo} />
-
+      <Route exact path="/usereducer" component={useReducer} />
       <Route exact path="/:productid/editexampleseven" component={EditExampleSeven} />
     </BrowserRouter>
 

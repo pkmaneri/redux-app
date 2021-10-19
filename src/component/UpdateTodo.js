@@ -14,9 +14,10 @@ export default function UpdateTodo(props) {
 
 
   const handleOnChange = (e) => {
-    let prevPost = JSON.parse(JSON.stringify(post));
-    prevPost[e.target.name] = e.target.value;
-    setPost(prevPost);
+    setPost({
+      ...post,
+      [e.target.name]:e.target.value
+  })
     
   };
   const handleOnChangeChecked = (e) => {

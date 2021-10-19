@@ -7,13 +7,19 @@ export default function CreateTodo(props) {
     };
     const [post, setPost] = useState(intialPost);
 
-    const handleOnChange = (e) => {
-        let prevPost = JSON.parse(JSON.stringify(post));
-        prevPost[e.target.name] = e.target.value;
-        setPost(prevPost);
+    // const handleOnChange = (e) => {
+    //     let prevPost = JSON.parse(JSON.stringify(post));
+    //     prevPost[e.target.name] = e.target.value;
+    //     setPost(prevPost);
 
 
-    };
+    // };
+        const handleOnChange = (e) => {
+            setPost({
+                ...post,
+                [e.target.name]:e.target.value
+            })
+        }
     const handleOnChangeChecked = (e) => {
         let prevPost = JSON.parse(JSON.stringify(post));
         prevPost[e.target.name] = e.target.checked;
