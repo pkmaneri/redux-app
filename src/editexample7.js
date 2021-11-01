@@ -6,7 +6,6 @@ import {  updateProductUser } from './action/myaction';
 
 const EditExampleSeven = () => {
     const { productid } = useParams();
-
     const [productName, setProductName] = useState("");
     const [productPrice, setProductPrice] = useState("");
     const [productQty, setProductQuantity] = useState("")
@@ -40,7 +39,7 @@ const EditExampleSeven = () => {
 
     useEffect(() => {
         getProductUser();
-    }, [true]);
+    },[true]);
     
 
     return (

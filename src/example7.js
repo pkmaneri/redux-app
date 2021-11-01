@@ -109,7 +109,9 @@ const ReduxSeven = () => {
                                     <td>{productname.productName}</td>
                                     <td>{productname.productPrice}</td>
                                     <td>{productname.productQty}</td>
-                                    <td><button className="btn btn-danger" onClick={handleDelete.bind(this, _id)}>Delete</button>
+                                    
+                                    <td><button className="btn btn-danger" 
+                                            onClick={handleDelete.bind(this,_id)}>Delete</button>
                                         <Link className="btn btn-warning m-2"
                                             to={`/${_id}/editexampleseven`}>Edit</Link>
                                     </td>
