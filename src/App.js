@@ -1,4 +1,3 @@
-import React from "react";
 import ReduxOne from "./example1";
 import ReduxTwo from "./example2";
 import ReduxThree from "./example3";
@@ -11,10 +10,31 @@ import ReduxSeven from "./example7";
 import EditExampleSeven from "./editexample7";
 import MasterTodo from "./component/MasterTodo";
 import useReducer from "./reducer";
-// import Ref from "./ref";
+// import CompA from "./component/Hoc/compA";
+// import CompB from "./component/Hoc/compB";
+// import Home from "./lazyloading/home";
+// import { Suspense, lazy } from "react";
+import Ref from "./ref";
+import UseMemo from "./usememo/usememo";
+
+
+// const Home = lazy(() => import("./Home"))
+// const About = lazy(() => import("./About"))
+
 
 function App() {
   return (
+    
+    // <div>
+    //   <h1>Lazy Loading</h1>
+    //   <Suspense fallback={<div>please wait...</div>}>
+    //     <About />
+    //   </Suspense>
+    //   <Suspense fallback={<div>please wait...</div>}>
+    //     <Home />
+    //   </Suspense>
+    // </div>
+
     <BrowserRouter>
       <ul>
         <li><Link to="/">ReduxOne</Link> </li>
@@ -26,9 +46,9 @@ function App() {
         <li ><Link to="/reduxseven">ReduxSeven</Link> </li>
         <li ><Link to="/reduxtodo">Todo</Link> </li>
         <li ><Link to="/usereducer">UseReducer</Link> </li>
+        <li ><Link to="/ref">UseRef</Link> </li>
+        <li ><Link to="/usememo">UseMemo</Link> </li>
 
-
-        {/* <li ><Link to="/ref">UseRef</Link> </li> */}
 
 
       </ul>
@@ -37,12 +57,14 @@ function App() {
       <Route exact path="/reduxthree" component={ReduxThree} />
       <Route exact path="/reduxfour" component={ReduxFour} />
       <Route exact path="/reduxfive" component={ReduxFive} />
-      {/* <Route exact path="/ref" component={Ref} /> */}
+      <Route exact path="/ref" component={Ref} />
       <Route exact path="/:bookid/editexample" component={EditExample} />
       {/* <Route exact path="/reduxsix" component={ReduxSix} /> */}
       <Route exact path="/reduxseven" component={ReduxSeven} />
       <Route exact path="/reduxtodo" component={MasterTodo} />
       <Route exact path="/usereducer" component={useReducer} />
+      <Route exact path="/usememo" component={UseMemo} />
+
       <Route exact path="/:productid/editexampleseven" component={EditExampleSeven} />
     </BrowserRouter>
 

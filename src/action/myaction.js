@@ -102,11 +102,7 @@ export const profileData = (data) => {
 //     }
 // }
 
-
-
-
 export const productData = (data) => {
-
     var iteminfo = {
         type: "submitProduct",
         "productdetails": data
@@ -124,10 +120,10 @@ export const removeProduct = (index) => {
 }
 
 
-export const productuserget =(products)=>({
-    type:"getproductuser",
-    payload:products
-})
+    export const productuserget =(products)=>({
+        type:"getproductuser",
+        payload:products
+    })
 export const Productuserremove =(id)=>({
     type:"remove",
     id:id
@@ -135,8 +131,6 @@ export const Productuserremove =(id)=>({
 export const updateProductUser=(product)=>({
     type:"update",
     payload:product
-    
-
 })
 
 export const productUserData = (data) => {
@@ -144,10 +138,7 @@ export const productUserData = (data) => {
         type: "submitProductUser",
         payload: data
     };
-
-
     return iteminfo
-
 }
 
 //post
@@ -163,15 +154,11 @@ export const postUpdate=(postList)=>({
     type:"updatePost",
     payload:postList
 })
-
 export const postData = (data) => {
     var iteminfo = {
         type: "submitPost",
         payload: data
     };
-
-
     return iteminfo
-
 }
 

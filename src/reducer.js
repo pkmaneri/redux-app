@@ -7,8 +7,7 @@ const reducer = (state, action) => {
         return state + 1;
     }
     if (action.type === "Decrement") {
-        return state - 5;
-
+        return state - 1;
     }
     return state;
 }
@@ -19,7 +18,7 @@ const Reducer = () => {
         <>
             <div className="container">
                 <button className="btn btn-primary m-3" onClick={() => dispatch({ type: "Increment" })}>Inc</button>
-                <button className="btn btn-primary" onClick={() => dispatch({ type: "Decrement" })}>Dec</button>
+                <button className="btn btn-primary" onClick={() => {if(state >0)dispatch({ type: "Decrement" })}}>Dec</button>
                 <p>{state}</p>
             </div>
 

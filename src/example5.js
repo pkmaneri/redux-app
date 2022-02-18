@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ReduxFive = () => {
-    const [countryList] = useState([{ "name": "Afghanistan", "code": "AF" }, { "name": "Bangladesh", "code": "BD" }, { "name": "Barbados", "code": "BB" }, { "name": "Cameroon", "code": "CM" }, { "name": "Canada", "code": "CA" }, { "name": "Denmark", "code": "DK" }, { "name": "Djibouti", "code": "DJ" }, { "name": "Guernsey", "code": "GG" }, { "name": "Guinea", "code": "GN" }, { "name": "Guinea-Bissau", "code": "GW" }, { "name": "Guyana", "code": "GY" }, { "name": "Haiti", "code": "HT" }, { "name": "Heard Island and Mcdonald Islands", "code": "HM" }, { "name": "Holy See (Vatican City State)", "code": "VA" }, { "name": "Honduras", "code": "HN" }, { "name": "Hong Kong", "code": "HK" }, { "name": "Hungary", "code": "HU" }, { "name": "Iceland", "code": "IS" }, { "name": "India", "code": "IN" }, { "name": "Indonesia", "code": "ID" }, { "name": "Somalia", "code": "SO" }, { "name": "South Africa", "code": "ZA" }, { "name": "Yemen", "code": "YE" }, { "name": "Zambia", "code": "ZM" }, { "name": "Zimbabwe", "code": "ZW" }]
+    const [countryList] = useState(
+        [{ "name": "Afghanistan", "code": "AF" }, { "name": "Bangladesh", "code": "BD" }, { "name": "Barbados", "code": "BB" }, { "name": "Cameroon", "code": "CM" }, { "name": "Canada", "code": "CA" }, { "name": "Denmark", "code": "DK" }, { "name": "Djibouti", "code": "DJ" }, { "name": "Guernsey", "code": "GG" }, { "name": "Guinea", "code": "GN" }, { "name": "Guinea-Bissau", "code": "GW" }, { "name": "Guyana", "code": "GY" }, { "name": "Haiti", "code": "HT" }, { "name": "Heard Island and Mcdonald Islands", "code": "HM" }, { "name": "Holy See (Vatican City State)", "code": "VA" }, { "name": "Honduras", "code": "HN" }, { "name": "Hong Kong", "code": "HK" }, { "name": "Hungary", "code": "HU" }, { "name": "Iceland", "code": "IS" }, { "name": "India", "code": "IN" }, { "name": "Indonesia", "code": "ID" }, { "name": "Somalia", "code": "SO" }, { "name": "South Africa", "code": "ZA" }, { "name": "Yemen", "code": "YE" }, { "name": "Zambia", "code": "ZM" }, { "name": "Zimbabwe", "code": "ZW" }]
     )
     const [bookName, setBookName] = useState("");
     const [price, setPrice] = useState("")
@@ -22,23 +23,23 @@ const ReduxFive = () => {
     const dispatch = useDispatch();
 
 
-    const handleOnChange = (e ) => {
+    const handleOnChange = (e) => {
         const files = Array.from(e.target.files);
         getBase64(files[0], (encodeData) => {
-        setPhoto(encodeData);
+            setPhoto(encodeData);
         });
-      };
-      const getBase64 = (file, cb) => {
+    };
+    const getBase64 = (file, cb) => {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function () {
-          cb(reader.result);
+            cb(reader.result);
         };
         reader.onerror = function (error) {
-          console.log("Error: ", error);
+            console.log("Error: ", error);
         };
-      };
-    
+    };
+
 
     const addProfile = () => {
         var data = { bookName: bookName, price: price, qty: qty, country: country, bookphoto: bookphoto };
@@ -53,7 +54,6 @@ const ReduxFive = () => {
             setQuantity("");
             getProfile();
             setToggle("listView")
-
         })
     }
 
@@ -66,7 +66,7 @@ const ReduxFive = () => {
     };
 
     const getProfile = () => {
-        
+
         var url = "http://localhost:3001/user";
         axios.get(url).then(response => {
             console.log(response)
@@ -109,6 +109,17 @@ const ReduxFive = () => {
                         <input type="number" placeholder="quantity" className="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
                     </div>
 
+                    <div class="ui compact menu">
+                        <div class="ui simple country item">
+                        Country
+                            <i class="Country icon"></i>
+                            <div class="menu">
+                                <div class="item">Select </div>
+                                <div class="item">Choice 2</div>
+                                <div class="item">Choice 3</div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="mb-3">
                         <lable htmlFor="form-control">Country</lable>
                         <select class="form-control" value={country} onChange={(e) => setCountry(e.target.value)} >
@@ -149,7 +160,6 @@ const ReduxFive = () => {
                                 <th>Qty</th>
                                 <th>Country</th>
                                 <th>Action</th>
-
                             </tr>
                         </thead>
                         <tbody>

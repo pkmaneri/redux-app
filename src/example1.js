@@ -12,7 +12,7 @@ const ReduxOne=()=>{
             <h1>Redux Example one</h1>
             <h1>{myNumber}</h1>
             <button onClick={()=>dispatch(one())}>Click to + By 10</button>
-            <button onClick={()=>dispatch(two())}>Click to - By 10</button>
+            <button onClick={()=> dispatch(two())}>Click to - By 10</button>
 
         </div>
     )
