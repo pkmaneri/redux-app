@@ -16,6 +16,8 @@ import useReducer from "./reducer";
 // import { Suspense, lazy } from "react";
 import Ref from "./ref";
 import UseMemo from "./usememo/usememo";
+import Employee from "./employee/employee";
+import EmployeeEdit from "./employee/employeeEdit";
 
 
 // const Home = lazy(() => import("./Home"))
@@ -42,16 +44,15 @@ function App() {
         <li ><Link to="/reduxthree">ReduxThree</Link> </li>
         <li ><Link to="/reduxfour">ReduxFour</Link> </li>
         <li ><Link to="/reduxfive">ReduxFive</Link> </li>
-        {/* <li ><Link to="/reduxsix">ReduxSix</Link> </li> */}
+        <li ><Link to="/reduxsix">ReduxSix</Link> </li>
         <li ><Link to="/reduxseven">ReduxSeven</Link> </li>
         <li ><Link to="/reduxtodo">Todo</Link> </li>
         <li ><Link to="/usereducer">UseReducer</Link> </li>
         <li ><Link to="/ref">UseRef</Link> </li>
         <li ><Link to="/usememo">UseMemo</Link> </li>
-
-
-
+        <li ><Link to="/employee">Employee</Link> </li>
       </ul>
+
       <Route exact path="/" component={ReduxOne} />
       <Route exact path="/reduxtwo" component={ReduxTwo} />
       <Route exact path="/reduxthree" component={ReduxThree} />
@@ -64,7 +65,8 @@ function App() {
       <Route exact path="/reduxtodo" component={MasterTodo} />
       <Route exact path="/usereducer" component={useReducer} />
       <Route exact path="/usememo" component={UseMemo} />
-
+      <Route exact path="/employee" component={Employee} />
+      <Route exact path="/:employeeid/editemployee" component={EmployeeEdit} />
       <Route exact path="/:productid/editexampleseven" component={EditExampleSeven} />
     </BrowserRouter>
 

@@ -162,3 +162,23 @@ export const postData = (data) => {
     return iteminfo
 }
 
+// Employee
+export const EmployeeGet =(employees)=>({
+    type:"GetEmployee",
+    payload:employees
+})
+export const EmployeeRemove =(id)=>({
+    type:"removeEmployee",
+    id:id
+})
+export const EmployeeUpdate=(employee)=>({
+    type:"updateEmployee",
+    payload:employee
+})
+export const EmployeeData = (data) => {
+    var iteminfo = {
+        type: "submitEmployee",
+        payload: data
+    };
+    return iteminfo
+}

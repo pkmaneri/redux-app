@@ -108,18 +108,6 @@ const ReduxFive = () => {
                         <label htmlFor="form-control">Quantity</label>
                         <input type="number" placeholder="quantity" className="form-control" value={qty} onChange={(e) => setQuantity(e.target.value)} />
                     </div>
-
-                    <div class="ui compact menu">
-                        <div class="ui simple country item">
-                        Country
-                            <i class="Country icon"></i>
-                            <div class="menu">
-                                <div class="item">Select </div>
-                                <div class="item">Choice 2</div>
-                                <div class="item">Choice 3</div>
-                            </div>
-                        </div>
-                    </div>
                     <div className="mb-3">
                         <lable htmlFor="form-control">Country</lable>
                         <select class="form-control" value={country} onChange={(e) => setCountry(e.target.value)} >

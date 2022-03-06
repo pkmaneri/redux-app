@@ -8,9 +8,11 @@ import product from "./productreducer";
 import useReducers from "./profilereducer"
 import productUserReducer from "./productuserreducer";
 import postReducer from "./postarrayreducer";
+import EmployeeReducers from "./employeereducer";
 const mainreducer=combineReducers(
     {
-        myNumber,itemList,productList,dataList,product,data:useReducers,userdata:productUserReducer,dataPost:postReducer
+        myNumber,itemList,productList,dataList,product,data:useReducers,userdata:productUserReducer,
+        dataPost:postReducer,empData:EmployeeReducers
     }
 )
 export default mainreducer;
